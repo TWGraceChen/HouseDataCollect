@@ -25,3 +25,7 @@
 ## 便利商店OK地址
 - 資料來源：https://www.okmart.com.tw/convenient_shopSearch
 - `python3 shopokmart.py`
+
+## 便利商店萊爾富地址
+- 資料來源：https://www.hilife.com.tw/storeInquiry_street.aspx
+- `python3 shophilifes.py`
