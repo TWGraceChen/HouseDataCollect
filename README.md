@@ -29,3 +29,8 @@
 ## 便利商店萊爾富地址
 - 資料來源：https://www.hilife.com.tw/storeInquiry_street.aspx
 - `python3 shophilifes.py`
+
+
+## 藥局
+- 資料來源：https://data.gov.tw/dataset/39284
+- `python3 pharmarcy.py`
