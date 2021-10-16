@@ -17,3 +17,7 @@
 ## 便利商店7-11座標
 - 資料來源：https://emap.pcsc.com.tw/emap.aspx
 - `python3 shop7-11.py`
+
+## 便利商店OK地址
+- 資料來源：https://www.okmart.com.tw/convenient_shopSearch
+- `python3 shopokmart.py`
