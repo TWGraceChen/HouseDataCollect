@@ -39,3 +39,8 @@
 ## 警察局/派出所
 - 資料來源：https://data.moi.gov.tw/MoiOD/Data/DataDetail.aspx?oid=DE03B06E-EED3-4B28-8A50-1E26642B9017
 - `python3 policestation.py`
+
+
+## 消防隊
+- 資料來源：https://data.gov.tw/dataset/5969
+- `python3 firestation.py`
