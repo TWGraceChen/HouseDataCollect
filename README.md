@@ -34,3 +34,8 @@
 ## 藥局
 - 資料來源：https://data.gov.tw/dataset/39284
 - `python3 pharmarcy.py`
+
+
+## 警察局/派出所
+- 資料來源：https://data.moi.gov.tw/MoiOD/Data/DataDetail.aspx?oid=DE03B06E-EED3-4B28-8A50-1E26642B9017
+- `python3 policestation.py`
