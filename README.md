@@ -13,3 +13,7 @@
 ## 機場捷運車站位置座標
 - 資料來源：https://data.gov.tw/dataset/96942
 - `python3 tymetrostation.py`
+
+## 便利商店7-11座標
+- 資料來源：https://emap.pcsc.com.tw/emap.aspx
+- `python3 shop7-11.py`
