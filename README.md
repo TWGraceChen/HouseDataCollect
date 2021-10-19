@@ -44,6 +44,10 @@
 - 資料來源：carrefour.com.tw/stores/
 - `python3 carrefour.py`
 
+## Costco
+- 資料來源：https://www.costco.com.tw/store-finder
+- `python3 costco.py`
+
 ## 藥局
 - 資料來源：https://data.gov.tw/dataset/39284
 - `python3 pharmarcy.py`
