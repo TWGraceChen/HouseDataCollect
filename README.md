@@ -10,6 +10,12 @@
 - `python3 mrtstation.py`
 
 
+## 市區公車站牌資料座標
+- 資料來源：https://ptx.transportdata.tw/MOTC#!/CityBus/CityBusApi_Stop
+- `python3 busstaion.py ptxkey.jsons`
+
+
+
 ## 機場捷運車站位置座標
 - 資料來源：https://data.gov.tw/dataset/96942
 - `python3 tymetrostation.py`
