@@ -12,7 +12,7 @@
 
 ## 市區公車站牌資料座標
 - 資料來源：https://ptx.transportdata.tw/MOTC#!/CityBus/CityBusApi_Stop
-- `python3 busstaion.py ptxkey.jsons`
+- `python3 busstaion.py ptxkey.json`
 
 
 
@@ -36,6 +36,9 @@
 - 資料來源：https://www.hilife.com.tw/storeInquiry_street.aspx
 - `python3 shophilifes.py`
 
+## 全聯
+- 資料來源：https://www.pxmart.com.tw/#/shopList
+- `python3 pxmart.py`
 
 ## 藥局
 - 資料來源：https://data.gov.tw/dataset/39284
