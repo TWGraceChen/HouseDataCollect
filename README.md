@@ -40,6 +40,10 @@
 - 資料來源：https://www.pxmart.com.tw/#/shopList
 - `python3 pxmart.py`
 
+## 家樂福
+- 資料來源：carrefour.com.tw/stores/
+- `python3 carrefour.py`
+
 ## 藥局
 - 資料來源：https://data.gov.tw/dataset/39284
 - `python3 pharmarcy.py`
