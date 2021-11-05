@@ -79,3 +79,8 @@
 - 資料來源：https://data.gov.tw/dataset/31163
 - `python3 park.py`
 - :warning: 品質不佳
+
+
+## 學校
+- 資料來源：https://depart.moe.edu.tw/ed4500/News_Content.aspx?n=63F5AB3D02A8BBAC&sms=1FF9979D10DBF9F3&s=A8441F4B7D2B1D62
+- `python3 school.py`
