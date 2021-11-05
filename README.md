@@ -52,6 +52,11 @@
 - 資料來源：https://www.costco.com.tw/store-finder
 - `python3 costco.py`
 
+
+## 大潤發
+- 資料來源：https://news.rt-mart.com.tw/main/%E5%88%86%E5%BA%97%E8%B3%87%E8%A8%8A-61
+- `python3 rtmart.py`
+
 ## 藥局
 - 資料來源：https://data.gov.tw/dataset/39284
 - `python3 pharmarcy.py`
