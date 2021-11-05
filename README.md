@@ -74,3 +74,8 @@
 ## 醫療院所
 - 資料來源：https://www.nhi.gov.tw/Content_List.aspx?n=212AD9A89E8BDCA2&topn=5FE8C9FEAE863B46
 - `python3 hospital.py`
+
+## 公園
+- 資料來源：https://data.gov.tw/dataset/31163
+- `python3 park.py`
+- :warning: 品質不佳
