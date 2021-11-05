@@ -36,6 +36,10 @@
 - 資料來源：https://www.hilife.com.tw/storeInquiry_street.aspx
 - `python3 shophilifes.py`
 
+## 美廉社
+- 資料來源：https://www.simplemart.com.tw/ec99/ushop20097/map.asp
+- `python3 simplemart.py`
+
 ## 全聯
 - 資料來源：https://www.pxmart.com.tw/#/shopList
 - `python3 pxmart.py`
