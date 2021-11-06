@@ -94,3 +94,8 @@
 ## 人口統計
 - 資料來源：https://data.gov.tw/dataset/18681
 - `python3 people.py`
+
+
+## 經濟指標
+- 資料來源：https://data.gov.tw/dataset/13228
+- `python3 eco.py`
