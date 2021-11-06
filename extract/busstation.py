@@ -1,6 +1,4 @@
 from requests import request
-import sys
-import csv
 import json
 from hashlib import sha1
 import hmac
@@ -8,6 +6,7 @@ from wsgiref.handlers import format_date_time
 from datetime import datetime
 from time import mktime
 import base64
+import function as func
 
 alldata = []
 citylist = {'Taipei':'臺北市','Keelung':'基隆市','NewTaipei':'新北市','Taoyuan':'桃園市',
@@ -51,44 +50,49 @@ def getvalue(data,key):
         value = ''
     return value
 
-if len(sys.argv) < 2 :
-    print("please input the ptx authentication info.")
-    sys.exit()
 
-with open(sys.argv[1], newline='') as jsonfile:
-    data = json.load(jsonfile)
-    app_id = data['appid']
-    app_key = data['appkey']
+def Extract(path,key):
+    print("====busstation====")
+    with open(key, newline='') as jsonfile:
+        data = json.load(jsonfile)
+        app_id = data['appid']
+        app_key = data['appkey']
+    
+    a = Auth(app_id, app_key)
+    for cityid in citylist:
+        url = 'https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/'+cityid+'?$format=JSON&'
+        city = citylist[cityid]
+        print("==="+city+"===") 
+        response = request('get', url, headers= a.get_auth_header())
+    
+        for stop in json.loads(response.content):
+            StopUID = stop['StopUID']
+            StopID = stop['StopID']
+            AuthorityID = stop['AuthorityID']
+            StopName_tw = stop['StopName']['Zh_tw']
+            StopName_En = getvalue(stop['StopName'],'En')
+            lon = stop['StopPosition']['PositionLon']   
+            lat = stop['StopPosition']['PositionLat']
+            geohash = stop['StopPosition']['GeoHash']
+            StopAddress = getvalue(stop,'StopAddress')
+            Bearing = getvalue(stop,'Bearing')
+            StationID = getvalue(stop,'StationID')
+            City = stop['City']
+            CityCode = stop['CityCode']
+            LocationCityCode = stop['LocationCityCode']
+            UpdateTime = updatetime(stop['UpdateTime'])
+            VersionID = stop['VersionID']
+            data = [city,StopUID,StopID,AuthorityID,StopName_tw,StopName_En,lon,lat,geohash,StopAddress,Bearing,StationID,City,CityCode,LocationCityCode,UpdateTime,VersionID]
+            alldata.append(data)
+    
+    
+    output = path+'/busstation.csv'
+    func.writetofile(output,alldata)
 
-a = Auth(app_id, app_key)
-for cityid in citylist:
-    url = 'https://ptx.transportdata.tw/MOTC/v2/Bus/Stop/City/'+cityid+'?$format=JSON&'
-    city = citylist[cityid]
-    print("==="+city+"===") 
-    response = request('get', url, headers= a.get_auth_header())
-
-    for stop in json.loads(response.content):
-        StopUID = stop['StopUID']
-        StopID = stop['StopID']
-        AuthorityID = stop['AuthorityID']
-        StopName_tw = stop['StopName']['Zh_tw']
-        StopName_En = getvalue(stop['StopName'],'En')
-        lon = stop['StopPosition']['PositionLon']   
-        lat = stop['StopPosition']['PositionLat']
-        geohash = stop['StopPosition']['GeoHash']
-        StopAddress = getvalue(stop,'StopAddress')
-        Bearing = getvalue(stop,'Bearing')
-        StationID = getvalue(stop,'StationID')
-        City = stop['City']
-        CityCode = stop['CityCode']
-        LocationCityCode = stop['LocationCityCode']
-        UpdateTime = updatetime(stop['UpdateTime'])
-        VersionID = stop['VersionID']
-        data = [city,StopUID,StopID,AuthorityID,StopName_tw,StopName_En,lon,lat,geohash,StopAddress,Bearing,StationID,City,CityCode,LocationCityCode,UpdateTime,VersionID]
-        alldata.append(data)
 
 
-# write to file
-with open('./data/busstation.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerows(alldata)
+
+if __name__ == '__main__':
+    Extract('../data',"ptxkey.json")
+
+        
