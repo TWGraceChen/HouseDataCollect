@@ -39,7 +39,7 @@ def Extract(path):
                 alldata.append(data)
             print(city+townname)
 
-    output = path+'/shop7-11.csv'
+    output = path+'/shopseven.csv'
     func.writetofile(output,alldata)
 
 
