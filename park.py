@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-import function as func
+from src import function as func
 import os
 
 def Extract(path):

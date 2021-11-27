@@ -40,6 +40,44 @@ def insertdb(conn,table,schema,data):
     sql = "insert into "+ table + " values "+",".join(dataset)
     exec(conn,sql)
 
+
+def load(db,table,schema,data,delete=True):
+    if delete:
+        sql = "drop table "+table
+        try:
+            exec(db,sql)
+        except Exception as e:
+            None
+    
+    sql = "create table `"+ table + "`("
+    for c in schema:
+        sql = sql + c + " " + schema[c] +","
+    sql = sql[:-1] + ")" 
+    try:
+        exec(db,sql)
+    except Exception as e:
+        if "Object already exists" in e.args[1]:
+            None
+        else:
+            print(e)
+            return
+
+    values = []
+    for rows in data:
+        values.append("(" + ",".join(["\""+str(item).replace("\"","\\\"")+"\"" for item in rows]) + ")")
+        if len(values) == 300 or len(values) == len(data):
+            sql = "insert into `" + table + "` values "+ ",".join(values)
+            try:
+                exec(db,sql)
+            except Exception as e:
+                print(e)
+            values = []
+        
+    print(table)
+
+
+
+
 if __name__ == '__main__':
     c = conn("127.0.0.1",13303,"house")
     print(c)

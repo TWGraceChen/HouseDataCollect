@@ -1,7 +1,7 @@
 import requests
 import json
-import function as func
-
+from src import function as func
+from src import bo
 
 def Extract(path):
     print("====shopfamily====")
@@ -35,16 +35,33 @@ def Extract(path):
                 services = shop["all"]
                 road = shop["road"]
                 twoice = shop["twoice"]
-                data = [post,town,name,tel,postel,px,py,addr,serid,pkey,oldpkey,post2,services,road,twoice]
+                data = [city,post,town,name,tel,postel,px,py,addr,serid,pkey,oldpkey,post2,services,road,twoice]
                 alldata.append(data)
             print(city+town)
 
     output = path+'/shopfamily.csv'
     func.writetofile(output,alldata)
 
+def Transform(file):
+    return func.readcsv(file)
+
+
+
+
 if __name__ == '__main__':
-    Extract('../data')
+    # Extract
+    Extract('./data')
+    
+    # Transform
+    data = Transform('./data/shopfamily.csv')
+
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "shopfamily"
+    bo.load(db,table,schema[table],data)    
 
     
-   
+
 

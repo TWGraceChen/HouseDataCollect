@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import xml.etree.ElementTree as ET
-import function as func
+from src import function as func
 
 
 def Extract(path):

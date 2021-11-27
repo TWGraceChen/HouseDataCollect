@@ -2,8 +2,9 @@ import requests
 from openpyxl import load_workbook
 import csv
 import os
-import function as func
-
+import json
+from src import function as func
+from src import bo
 
 def process(url,name,path):
     req = requests.get(url)
@@ -32,8 +33,39 @@ def Extract(path):
     process("https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=C38B7AC2-E7F3-4DD5-A3F3-88E623B55924",'firestation2',path) 
     
 
+
+def Transform1(file):
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = [] 
+    for r in raw:
+        data.append([r[0],r[1],r[2],r[4],r[5]])
+        
+    return data
+
+def Transform2(file):
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = [] 
+    for r in raw:
+        data.append([r[0],r[1],r[2],r[3],r[4]])
+    return data
+
+
 if __name__ == '__main__':
-    Extract('../data')
+    # Extract
+    Extract('./data')
     
+    # Transform
+    data1 = Transform1('./data/firestation1.csv')
+    data2 = Transform2('./data/firestation2.csv')
+
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "firestation"
+    bo.load(db,table,schema[table],data1)   
+    bo.load(db,table,schema[table],data2,delete=False)        
 
 

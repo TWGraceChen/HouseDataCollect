@@ -1,8 +1,8 @@
 import requests
 import xml.etree.ElementTree as ET
-import function as func
-
-
+from src import function as func
+from src import bo
+import json
 
 def Extract(path):
     print("====shopseven====")
@@ -42,9 +42,27 @@ def Extract(path):
     output = path+'/shopseven.csv'
     func.writetofile(output,alldata)
 
+def Transform(file):
+    data = func.readcsv(file)
+    for i in range(len(data)):
+        data[i][4] = float(data[i][4])/1000000
+        data[i][5] = float(data[i][5])/1000000
+        data[i][8] = float(data[i][8])/1000000
+        data[i][9] = float(data[i][9])/1000000
+
+    return data
+
 
 if __name__ == '__main__':
-    Extract('../data')
-
+    # Extract
+    Extract('./data')
     
-   
+    # Transform
+    data = Transform('./data/shopseven.csv')
+
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "shopseven"
+    bo.load(db,table,schema[table],data)    

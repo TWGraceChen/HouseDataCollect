@@ -2,7 +2,7 @@ import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,peo
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation
 
 
-path = "../data"
+path = "./data"
 
 
 busstation.Extract(path,"ptxkey.json")

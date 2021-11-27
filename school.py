@@ -1,6 +1,6 @@
 import requests
 import os
-import function as func
+from src import function as func
 
 def Extract(path):
     print("====school====")

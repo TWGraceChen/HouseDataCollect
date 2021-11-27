@@ -1,8 +1,8 @@
 
 import requests
 import json
-import function as func
-
+from src import function as func
+from src import bo
 
 def Extract(path):
     print("====pxmart====")
@@ -44,6 +44,22 @@ def Extract(path):
     output = path+'/pxmart.csv'
     func.writetofile(output,alldata)
 
+def Transform(file):
+    return func.readcsv(file)
+
 
 if __name__ == '__main__':
-    Extract('../data')
+    # Extract
+    Extract('./data')
+    
+    # Transform
+    data = Transform('./data/pxmart.csv')
+    
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "pxmart"
+    bo.load(db,table,schema[table],data)    
+
+    

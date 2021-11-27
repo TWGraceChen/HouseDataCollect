@@ -6,7 +6,8 @@ from wsgiref.handlers import format_date_time
 from datetime import datetime
 from time import mktime
 import base64
-import function as func
+from src import function as func
+from src import bo
 
 alldata = []
 citylist = {'Taipei':'臺北市','Keelung':'基隆市','NewTaipei':'新北市','Taoyuan':'桃園市',
@@ -90,9 +91,19 @@ def Extract(path,key):
     func.writetofile(output,alldata)
 
 
-
+def Transform(file):
+    return func.readcsv(file)
 
 if __name__ == '__main__':
-    Extract('../data',"ptxkey.json")
-
-        
+    # Extract
+    Extract('./data',"ptxkey.json")
+    
+    # Transform
+    data = Transform('./data/busstation.csv')
+    
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "busstation"
+    bo.load(db,table,schema[table],data)
