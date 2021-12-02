@@ -115,8 +115,25 @@ data = tymetrostation.Transform(path+'/tymetrostation.csv')
 table = "tymetrostation"
 bo.load(db,table,schema[table],data)   
 
+# people
+data_base = people.Transform(path+'/people_base.csv')
+data_1 = people.Transform(path+'/people_1.csv')
+data_2 = people.Transform(path+'/people_2.csv')
+table = "people_base"
+bo.load(db,table,schema[table],data)   
+table = "people_1"
+bo.load(db,table,schema[table],data)  
+table = "people_2"
+bo.load(db,table,schema[table],data)  
+
+# school
+data = school.Transform(path+'/school')
+table = "school"
+bo.load(db,table,schema[table],data)   
+
+# park
+
+
+
 
 # house
-# park
-# people
-# school

@@ -1,6 +1,8 @@
 import requests
 import os
 from src import function as func
+from src import bo
+import json
 
 def Extract(path):
     print("====school====")
@@ -43,9 +45,89 @@ def Extract(path):
         func.writetofile(output,content)
 
 
+def Transform(path):
+    data = []
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
+    raw = func.readcsv(path+'/特殊教育學校.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+
+
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
+    raw = func.readcsv(path+'/附設國中部.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
+    raw = func.readcsv(path+'/附設國小部.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址,體系別
+    raw = func.readcsv(path+'/大專校院.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r[:7] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
+    raw = func.readcsv(path+'/國民小學.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+    #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
+    raw = func.readcsv(path+'/國民中學.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+    #代碼,學校名稱,公私立,縣市名稱,地址,電話,網址,備註
+    raw = func.readcsv(path+'/高級中等學校一般高級中等學校.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[4].split(']')[1],"./geo")
+        row = r[:7] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+    #代碼,學校名稱,公/私立,縣市名稱,"鄉鎮市區名稱",地址,電話
+    raw = func.readcsv(path+'/學前教保服務機構幼兒園.csv')
+    raw = raw[1:]
+    for r in raw:
+        xy = func.transgeo(r[5].split(']')[1],"./geo")
+        row = r[:4] + r[5:] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        data.append(row)
+
+
+    return data
 
 
 if __name__ == '__main__':
-    Extract('../data')
-
+    # Extract
+    Extract('./data')
     
+    # Transform
+    data = Transform('./data/school')
+
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "school"
+    bo.load(db,table,schema[table],data)    

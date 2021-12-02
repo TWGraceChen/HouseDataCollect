@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import xml.etree.ElementTree as ET
 from src import function as func
-
+from src import bo
 
 def Extract(path):
     print("====people====")
@@ -52,7 +52,34 @@ def Extract(path):
     output = path+"/people_2.csv"
     func.writetofile(output,alldata_2)
 
+def Transform(file):
+    raw = func.readcsv(file)
+    data = [] 
+    for r in raw:
+        data.append([int(r[0][:3]) + 1911,r[0][4:6]]+r[1:])
+    
+    return data
 
 
 if __name__ == '__main__':
-    Extract('../data')
+    # Extract
+    Extract('./data')
+    
+    # Transform
+    data_base = Transform('./data/people_base.csv')
+    data_1 = Transform('./data/people_1.csv')
+    data_2 = Transform('./data/people_2.csv')
+
+
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "people_base"
+    bo.load(db,table,schema[table],data_base)   
+    table = "people_1"
+    bo.load(db,table,schema[table],data_1)    
+    table = "people_2"
+    bo.load(db,table,schema[table],data_2)        
+
+

@@ -365,5 +365,55 @@
         "lon":"double",
         "type":"string(20)",
         "address":"varstring(200)"
+    },
+    "people_base":{
+        "year":"int32",
+        "month":"int8",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "code_base":"char(13)",
+        "h_cnt":"int32",
+        "p_cnt":"int32",
+        "m_cnt":"int32",
+        "f_cnt":"int32"
+    },
+    "people_1":{
+        "year":"int32",
+        "month":"int8",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "h_cnt":"int32",
+        "p_cnt":"int32",
+        "m_cnt":"int32",
+        "f_cnt":"int32"
+    },
+    "people_2":{
+        "year":"int32",
+        "month":"int8",
+        "code2":"char(8)",
+        "code_base":"char(13)",
+        "h_cnt":"int32",
+        "p_cnt":"int32",
+        "m_cnt":"int32",
+        "f_cnt":"int32"
+    },
+    "school":{
+        "id":"char(6)",
+        "name":"varstring(100)",
+        "type":"string(10)",
+        "city":"string(20)",
+        "address":"varstring(200)",
+        "phone":"varstring(200)",
+        "xycity":"string(10)",
+        "town":"string(10)",
+        "xyaddress":"varstring(200)",
+        "xyarea":"varstring(20)",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "code":"char(16)",
+        "desc":"varstring(100)",
+        "lon":"double",
+        "lat":"double"
     }
 }
