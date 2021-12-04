@@ -506,7 +506,7 @@
         "lon":"double",
         "lat":"double"
     },
-    "house_pre_buy":{
+    "house_rent":{
         "city":"string(10)",
         "town":"string(10)",
         "transaction_sign":"string(30)",
@@ -548,5 +548,61 @@
         "desc":"varstring(100)",
         "lon":"double",
         "lat":"double"
+    },
+    "area_code0":{
+        "codebase":"char(13)",
+        "code1":"char(12)",
+        "code2":"char(8)",
+        "townid":"int64",
+        "town":"string(10)",
+        "city_id":"int64    ",
+        "city":"string(10)",
+        "u_id":"int64",
+        "area":"double",
+        "y":"double",
+        "x":"double",
+        "geometry":"varstring(786432)",
+        "polygon":"multipolygon"
+    },
+    "area_code1":{
+        "code1":"char(12)",
+        "code2":"char(8)",
+        "townid":"int64",
+        "town":"string(10)",
+        "city_id":"int64    ",
+        "city":"string(10)",
+        "u_id":"int64",
+        "area":"double",
+        "y":"double",
+        "x":"double",
+        "geometry":"varstring(786432)",
+        "polygon":"multipolygon"
+    },
+    "area_code2":{
+        "code2":"char(8)",
+        "townid":"int64",
+        "town":"string(10)",
+        "city_id":"int64    ",
+        "city":"string(10)",
+        "u_id":"int64",
+        "area":"double",
+        "y":"double",
+        "x":"double",
+        "geometry":"varstring(786432)",
+        "polygon":"multipolygon"
+    },
+    "area_village":{
+        "villcode":"char(11)",
+        "county":"string(10)",
+        "town":"string(10)",
+        "villname":"string(10)",
+        "villeng":"varstring(50)",
+        "countyid":"char(1)",
+        "countycode":"char(5)",
+        "townid":"char(3)",
+        "towncode":"char(8)",
+        "note":"varstring(200)",
+        "geometry":"varstring(786432)",
+        "polygon":"multipolygon"
     }
 }

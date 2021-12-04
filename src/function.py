@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 import requests
 import urllib.parse
 import twd97
-
+from shapely.geometry import Polygon,MultiPolygon
 
 def writetofile(output,data):
     if isinstance(data,str):
@@ -103,6 +103,28 @@ def TWDToGPS(lon,lat):
     r = twd97.towgs84(lon, lat)
     return list(r)
 
+
+
+def polyztopoly(poly):
+    if isinstance(poly,Polygon):
+        poly = [poly]
+    elif isinstance(poly,MultiPolygon):
+        poly = list(poly)
+
+    newpolys = []
+    for p in poly:
+        new = []
+        for s in list(p.exterior.coords):
+            n = TWDToGPS(s[0],s[1])
+            new.append((n[1],n[0]))
+        newpolys.append(Polygon(new))
+    return MultiPolygon(newpolys)
+
+def polytomultipoly(poly):
+    if isinstance(poly,Polygon):
+        return MultiPolygon([poly])
+    elif isinstance(poly,MultiPolygon):
+        return poly
 
 if __name__ == '__main__':
     #print(transgeo("臺北市大同區甘州街51號","../geo"))

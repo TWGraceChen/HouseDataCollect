@@ -41,7 +41,7 @@ def insertdb(conn,table,schema,data):
     exec(conn,sql)
 
 
-def load(db,table,schema,data,delete=True):
+def load(db,table,schema,data,delete=True,batch_size=30000):
     if delete:
         sql = "drop table "+table
         try:
@@ -67,7 +67,7 @@ def load(db,table,schema,data,delete=True):
     for rows in data:
         total = total +1
         values.append("(" + ",".join(["\""+str(item).replace("\"","\\\"")+"\"" for item in rows]) + ")")
-        if len(values) == 30000 or total == len(data):
+        if len(values) == batch_size or total == len(data):
             sql = "insert into `" + table + "` values "+ ",".join(values)
             try:
                 exec(db,sql)

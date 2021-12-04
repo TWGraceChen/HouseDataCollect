@@ -99,3 +99,20 @@
 ## 經濟指標
 - 資料來源：https://data.gov.tw/dataset/13228
 - `python3 eco.py`
+
+
+
+## 統計區圖
+- https://segis.moi.gov.tw/STAT/Web/Portal/GroupProfile/STAT_GroupProfileSTATClass.aspx
+- `python3 shp.py`
+### 最小統計區
+- 資料來源：https://data.gov.tw/dataset/25128
+
+### 一級發布區
+- 資料來源：https://data.gov.tw/dataset/20597
+
+### 二級發布區
+- 資料來源：https://data.gov.tw/dataset/20598
+
+### 村里發布區
+- 資料來源：https://data.gov.tw/dataset/7438
