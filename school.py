@@ -52,7 +52,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
 
@@ -62,7 +62,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
     #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
@@ -70,7 +70,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
 
@@ -79,7 +79,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r[:7] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
     #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
@@ -87,7 +87,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
     #代碼,學校名稱,公/私立,縣市名稱,地址,電話,網址
@@ -95,7 +95,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
     #代碼,學校名稱,公私立,縣市名稱,地址,電話,網址,備註
@@ -103,7 +103,7 @@ def Transform(path):
     raw = raw[1:]
     for r in raw:
         xy = func.transgeo(r[4].split(']')[1],"./geo")
-        row = r[:7] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r[:6] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
         data.append(row)
 
     #代碼,學校名稱,公/私立,縣市名稱,"鄉鎮市區名稱",地址,電話
