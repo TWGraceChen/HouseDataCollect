@@ -63,9 +63,11 @@ def load(db,table,schema,data,delete=True):
             return
 
     values = []
+    total = 0
     for rows in data:
+        total = total +1
         values.append("(" + ",".join(["\""+str(item).replace("\"","\\\"")+"\"" for item in rows]) + ")")
-        if len(values) == 300 or len(values) == len(data):
+        if len(values) == 30000 or total == len(data):
             sql = "insert into `" + table + "` values "+ ",".join(values)
             try:
                 exec(db,sql)

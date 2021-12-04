@@ -137,3 +137,15 @@ bo.load(db,table,schema[table],data)
 
 
 # house
+for period in os.listdir(path＋'/house'):
+    data_a,data_b,data_c = Transform(path＋'/house/'+period,['a','b','c'])
+
+    db = bo.conn("127.0.0.1",13303,period)
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "house_buy"
+    bo.load(db,table,schema[table],data_a) 
+    table = "house_pre_buy"
+    bo.load(db,table,schema[table],data_b)  
+    table = "house_rent"
+    bo.load(db,table,schema[table],data_c)    
