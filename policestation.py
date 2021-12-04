@@ -30,7 +30,8 @@ def Transform(file):
     raw = raw[1:]
     data = [] 
     for r in raw:
-        data.append(r+func.TWDToGPS(float(r[5]),float(r[6])))
+        gps = func.TWDToGPS(float(r[5]),float(r[6]))
+        data.append(r+gps+[func.towkt(gps[1],gps[0])])
     
     return data
 

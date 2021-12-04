@@ -13,7 +13,12 @@ def Extract(path):
     func.writetofile(output,url_content)
 
 def Transform(file):
-    return func.readcsv(file)[1:]
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = []
+    for r in raw:
+      data.append(r+[func.towkt(r[2],r[1])])
+    return data
 
 
 if __name__ == '__main__':

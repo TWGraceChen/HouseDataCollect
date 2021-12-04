@@ -126,6 +126,10 @@ def polytomultipoly(poly):
     elif isinstance(poly,MultiPolygon):
         return poly
 
+def towkt(lon,lat):
+    if lon == "" and lat == "":
+        return ""
+    return "point({} {})".format(lon,lat)
 if __name__ == '__main__':
     #print(transgeo("臺北市大同區甘州街51號","../geo"))
     #print(transgeoxy(121.514055,25.048808))

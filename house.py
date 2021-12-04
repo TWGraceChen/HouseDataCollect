@@ -52,10 +52,10 @@ def Transform(path,cate):
             for r in raw:
                 address = filladdress(city[k],r[0],r[2])
                 if r[1] == '土地':
-                    new = [city[k]] + r[0:2] + [address] + r[3:7] + [ymtodt(r[7])] + r[8:14]+[ymtodt(r[14])] + r[15:]+ [""] * 11
+                    new = [city[k]] + r[0:2] + [address] + r[3:7] + [ymtodt(r[7])] + r[8:14]+[ymtodt(r[14])] + r[15:]+ [""] * 12
                 else:
                     xy = func.transgeo(address,"./geo")
-                    new = [city[k]] + r[0:2] + [address] + r[3:7] + [ymtodt(r[7])] + r[8:14]+[ymtodt(r[14])] + r[15:] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+                    new = [city[k]] + r[0:2] + [address] + r[3:7] + [ymtodt(r[7])] + r[8:14]+[ymtodt(r[14])] + r[15:] + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
                 data.append(new)
         #exec("data_"+c+"= data")
         if c == 'a':

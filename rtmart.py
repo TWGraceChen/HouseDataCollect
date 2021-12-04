@@ -29,7 +29,7 @@ def Transform(file):
     data = []
     for r in raw:
         xy = func.transgeo(r[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
       
         data.append(row)
     return data

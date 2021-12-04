@@ -16,7 +16,12 @@
         "CityCode":"string(10)",
         "LocationCityCode":"string(10)",
         "UpdateTime":"datetime32",
-        "VersionID":"int32"
+        "VersionID":"int32",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "carrefour":{
         "id":"int32",
@@ -85,7 +90,12 @@
         "store_link":"varstring(100)",
         "scango_flg":"varstring(100)",
         "created_at":"datetime32",
-        "updated_at":"datetime32"
+        "updated_at":"datetime32",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "costco":{
         "displayName":"string(20)",
@@ -109,7 +119,12 @@
         "wed":"varstring(100)",
         "thur":"varstring(100)",
         "fri":"varstring(100)",
-        "sat":"varstring(100)"
+        "sat":"varstring(100)",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "eco":{
         "year":"int32",
@@ -139,7 +154,12 @@
         "address":"varstring(200)",
         "phone":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "hospital":{
         "area":"int8",
@@ -163,14 +183,21 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "mrtstation":{
         "id":"int32",
         "station":"string(50)",
         "stationid":"int8",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "pharmarcy":{
         "id":"int64",
@@ -196,7 +223,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "policestation":{
         "name":"string(40)",
@@ -207,7 +236,12 @@
         "point_x":"double",
         "point_y":"double",
         "lat":"double",
-        "lon":"double"
+        "lon":"double",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "pxmart":{
         "cityname":"string(10)",
@@ -222,7 +256,12 @@
         "lon":"double",
         "lat":"double",
         "cornerMark":"varstring(200)",
-        "service":"varstring(200)"
+        "service":"varstring(200)",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "rate":{
         "bank":"string(20)",
@@ -272,7 +311,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "shopfamily":{
         "city":"string(20)",
@@ -290,7 +331,12 @@
         "post2":"char(3)",
         "services":"varstring(200)",
         "road":"varstring(50)",
-        "twoice":"char(1)"
+        "twoice":"char(1)",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "shophilife":{
         "city":"string(10)",
@@ -309,7 +355,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "shopokmart":{
         "name":"string(30)",
@@ -324,7 +372,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "shopseven":{
         "cityid":"char(2)",
@@ -340,7 +390,12 @@
         "poitelno":"varstring(20)",
         "poifaxno":"varstring(20)",
         "poiaddress":"varstring(200)",
-        "poiimg":"varstring(200)"
+        "poiimg":"varstring(200)",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "simplemart":{
         "name":"string(20)",
@@ -357,21 +412,28 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "tymetrostation":{
         "station":"string(20)",
         "lat":"double",
         "lon":"double",
         "type":"string(20)",
-        "address":"varstring(200)"
+        "address":"varstring(200)",
+        "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "villcode":"char(11)"
     },
     "people_base":{
         "year":"int32",
         "month":"int8",
         "code2":"char(8)",
         "code1":"char(12)",
-        "code_base":"char(13)",
+        "codebase":"char(13)",
         "h_cnt":"int32",
         "p_cnt":"int32",
         "m_cnt":"int32",
@@ -391,7 +453,6 @@
         "year":"int32",
         "month":"int8",
         "code2":"char(8)",
-        "code_base":"char(13)",
         "h_cnt":"int32",
         "p_cnt":"int32",
         "m_cnt":"int32",
@@ -414,7 +475,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "house_buy":{
         "city":"string(10)",
@@ -461,7 +524,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "house_pre_buy":{
         "city":"string(10)",
@@ -504,7 +569,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "house_rent":{
         "city":"string(10)",
@@ -547,7 +614,9 @@
         "code":"char(16)",
         "desc":"varstring(100)",
         "lon":"double",
-        "lat":"double"
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"
     },
     "area_code0":{
         "codebase":"char(13)",

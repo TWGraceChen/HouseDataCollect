@@ -43,12 +43,14 @@ def Extract(path):
     func.writetofile(output,alldata)
 
 def Transform(file):
-    data = func.readcsv(file)
-    for i in range(len(data)):
-        data[i][4] = float(data[i][4])/1000000
-        data[i][5] = float(data[i][5])/1000000
-        data[i][8] = float(data[i][8])/1000000
-        data[i][9] = float(data[i][9])/1000000
+    raw = func.readcsv(file)
+    data = []
+    for r in raw:
+        townx = float(r[4])/1000000
+        towny = float(r[5])/1000000
+        x = float(r[8])/1000000
+        y = float(r[9])/1000000
+        data.append(r[:4]+[townx,towny]+r[6:8]+[x,y]+r[10:]+[func.towkt(x,y)])
 
     return data
 

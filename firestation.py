@@ -39,7 +39,7 @@ def Transform1(file):
     raw = raw[1:]
     data = [] 
     for r in raw:
-        data.append([r[0],r[1],r[2],r[4],r[5]])
+        data.append([r[0],r[1],r[2],r[4],r[5],func.towkt(r[4],r[5])])
         
     return data
 
@@ -48,7 +48,7 @@ def Transform2(file):
     raw = raw[1:]
     data = [] 
     for r in raw:
-        data.append([r[0],r[1],r[2],r[3],r[4]])
+        data.append([r[0],r[1],r[2],r[3],r[4],func.towkt(r[3],r[4])])
     return data
 
 

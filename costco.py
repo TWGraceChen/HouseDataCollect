@@ -22,8 +22,11 @@ def Extract(path):
 
 
 def Transform(file):
-    return func.readcsv(file)
-
+    raw = func.readcsv(file)
+    data = []
+    for r in raw:
+      data.append(r+[func.towkt(r[13],r[12])])
+    return data
 
 if __name__ == '__main__':
     # Extract

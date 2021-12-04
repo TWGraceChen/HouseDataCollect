@@ -28,9 +28,9 @@ def Transform(file):
 
         if len(r[4]) > 0:
             xy = func.transgeo(r[4],"./geo")
-            row = row + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y']]
+            row = row + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
         else:
-            row = row + [""] * 11
+            row = row + [""] * 12
         data.append(row)
         
     return data

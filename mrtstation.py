@@ -14,9 +14,11 @@ def Extract(path):
 
 def Transform(file):
     # 項次,出入口名稱,出入口編號,經度,緯度
-    data = func.readcsv(file)
-    data = data[1:]
-    
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = []
+    for r in raw:
+      data.append(r+[func.towkt(r[3],r[4])])
     return data
 
 
