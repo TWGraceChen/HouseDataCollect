@@ -29,9 +29,11 @@ def Transform(file):
     raw = func.readcsv(file)
     raw = raw[1:]
     data = [] 
+    idx = 1
     for r in raw:
         gps = func.TWDToGPS(float(r[5]),float(r[6]))
-        data.append(r+gps+[func.towkt(gps[1],gps[0])])
+        data.append([idx]+r+gps+[func.towkt(gps[1],gps[0])])
+        idx = idx +1
     
     return data
 

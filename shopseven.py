@@ -45,12 +45,14 @@ def Extract(path):
 def Transform(file):
     raw = func.readcsv(file)
     data = []
+    idx = 1
     for r in raw:
         townx = float(r[4])/1000000
         towny = float(r[5])/1000000
         x = float(r[8])/1000000
         y = float(r[9])/1000000
-        data.append(r[:4]+[townx,towny]+r[6:8]+[x,y]+r[10:]+[func.towkt(x,y)])
+        data.append([idx]+r[:4]+[townx,towny]+r[6:8]+[x,y]+r[10:]+[func.towkt(x,y)])
+        idx = idx +1
 
     return data
 

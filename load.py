@@ -136,28 +136,28 @@ bo.load(db,table,schema[table],data)
 
 
 # shp
-data0,data1,data2,datavillage = shp.Transform(path＋'/shp')
-table = "area_code0"
-bo.load(db,table,schema[table],data0,batch_size=100)    
-table = "area_code1"
-bo.load(db,table,schema[table],data1,batch_size=100)    
-table = "area_code2"
-bo.load(db,table,schema[table],data2,batch_size=100)    
-table = "area_village"
-bo.load(db,table,schema[table],datavillage,batch_size=100)  
+#data0,data1,data2,datavillage = shp.Transform(path＋'/shp')
+#table = "area_code0"
+#bo.load(db,table,schema[table],data0,batch_size=100)    
+#table = "area_code1"
+#bo.load(db,table,schema[table],data1,batch_size=100)    
+#table = "area_code2"
+#bo.load(db,table,schema[table],data2,batch_size=100)    
+#table = "area_village"
+#bo.load(db,table,schema[table],datavillage,batch_size=100)  
 
     
 
 # house
-for period in os.listdir(path＋'/house'):
-    data_a,data_b,data_c = house.Transform(path＋'/house/'+period,['a','b','c'])
+#for period in os.listdir(path＋'/house'):
+#    data_a,data_b,data_c = house.Transform(path＋'/house/'+period,['a','b','c'])
 
-    db = bo.conn("127.0.0.1",13303,period)
-    with open("schema.json") as f:
-        schema = json.load(f)
-    table = "house_buy"
-    bo.load(db,table,schema[table],data_a) 
-    table = "house_pre_buy"
-    bo.load(db,table,schema[table],data_b)  
-    table = "house_rent"
-    bo.load(db,table,schema[table],data_c)    
+#    db = bo.conn("127.0.0.1",13303,period)
+#    with open("schema.json") as f:
+#        schema = json.load(f)
+#    table = "house_buy"
+#    bo.load(db,table,schema[table],data_a) 
+#    table = "house_pre_buy"
+#    bo.load(db,table,schema[table],data_b)  
+#    table = "house_rent"
+#    bo.load(db,table,schema[table],data_c)    

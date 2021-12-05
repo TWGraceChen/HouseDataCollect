@@ -38,8 +38,10 @@ def Transform1(file):
     raw = func.readcsv(file)
     raw = raw[1:]
     data = [] 
+    idx = 1
     for r in raw:
-        data.append([r[0],r[1],r[2],r[4],r[5],func.towkt(r[4],r[5])])
+        data.append(['1-'+str(idx)]+[r[0],r[1],r[2],r[4],r[5],func.towkt(r[4],r[5])])
+        idx = idx +1
         
     return data
 
@@ -47,8 +49,10 @@ def Transform2(file):
     raw = func.readcsv(file)
     raw = raw[1:]
     data = [] 
+    idx = 1
     for r in raw:
-        data.append([r[0],r[1],r[2],r[3],r[4],func.towkt(r[3],r[4])])
+        data.append(['2-'+str(idx)]+[r[0],r[1],r[2],r[3],r[4],func.towkt(r[3],r[4])])
+        idx = idx + 1
     return data
 
 

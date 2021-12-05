@@ -27,11 +27,12 @@ def Extract(path):
 def Transform(file):
     raw = func.readcsv(file)
     data = []
+    idx = 1
     for r in raw:
         xy = func.transgeo(r[1],"./geo")
-        row = r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
-      
+        row = [idx]+ r + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
         data.append(row)
+        idx = idx +1
     return data
 
 

@@ -17,6 +17,7 @@ def Transform(file):
     raw = func.readcsv(file)
     raw = raw[1:]
     data = [] 
+    idx = 1
     for r in raw:
         row = r[:9]
         if len(r[9]) == 8:
@@ -31,7 +32,8 @@ def Transform(file):
             row = row + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
         else:
             row = row + [""] * 12
-        data.append(row)
+        data.append([idx]+row)
+        idx = idx +1
         
     return data
 

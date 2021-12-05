@@ -1,5 +1,6 @@
 {
     "busstation":{
+        "idx":"int32",
         "city":"string(10)",
         "StopUID":"char(8)",
         "StopID":"char(5)",
@@ -24,6 +25,7 @@
         "villcode":"char(11)"
     },
     "carrefour":{
+        "idx":"int32",
         "id":"int32",
         "name":"string(100)",
         "is24h":"string(10)",
@@ -98,6 +100,7 @@
         "villcode":"char(11)"
     },
     "costco":{
+        "idx":"int32",
         "displayName":"string(20)",
         "warehouseCode":"varstring(100)",
         "name":"varstring(100)",
@@ -150,6 +153,7 @@
         "service_hour":"double"
     },
     "firestation":{
+        "idx":"varstring(10)",
         "name":"string(100)",
         "address":"varstring(200)",
         "phone":"varstring(100)",
@@ -162,6 +166,7 @@
         "villcode":"char(11)"
     },
     "hospital":{
+        "idx":"int32",
         "area":"int8",
         "id":"char(10)",
         "name":"string(100)",
@@ -188,6 +193,7 @@
         "villcode":"char(11)"
     },
     "mrtstation":{
+        "idx":"int32",
         "id":"int32",
         "station":"string(50)",
         "stationid":"int8",
@@ -200,6 +206,7 @@
         "villcode":"char(11)"
     },
     "pharmarcy":{
+        "idx":"int32",
         "id":"int64",
         "name":"string(50)",
         "org_category":"string(20)",
@@ -228,6 +235,7 @@
         "villcode":"char(11)"
     },
     "policestation":{
+        "idx":"int32",
         "name":"string(40)",
         "en_name":"varstring(50)",
         "zipcode":"int32",
@@ -244,6 +252,7 @@
         "villcode":"char(11)"
     },
     "pxmart":{
+        "idx":"int32",
         "cityname":"string(10)",
         "townname":"string(10)",
         "id":"int32",
@@ -299,6 +308,7 @@
         "benchmark_ratevar":"double"
     },
     "rtmart":{
+        "idx":"int32",
         "name":"string(20)",
         "address":"varstring(200)",
         "city":"string(10)",
@@ -316,6 +326,7 @@
         "villcode":"char(11)"
     },
     "shopfamily":{
+        "idx":"int32",
         "city":"string(20)",
         "post":"char(3)",
         "town":"string(10)",
@@ -339,6 +350,7 @@
         "villcode":"char(11)"
     },
     "shophilife":{
+        "idx":"int32",
         "city":"string(10)",
         "area":"string(10)",
         "id":"int32",
@@ -360,6 +372,7 @@
         "villcode":"char(11)"
     },
     "shopokmart":{
+        "idx":"int32",
         "name":"string(30)",
         "address":"varstring(200)",
         "city":"string(10)",
@@ -377,6 +390,7 @@
         "villcode":"char(11)"
     },
     "shopseven":{
+        "idx":"int32",
         "cityid":"char(2)",
         "city":"string(10)",
         "towmid":"char(2)",
@@ -398,6 +412,7 @@
         "villcode":"char(11)"
     },
     "simplemart":{
+        "idx":"int32",
         "name":"string(20)",
         "time":"varstring(100)",
         "tel":"varstring(20)",
@@ -417,6 +432,7 @@
         "villcode":"char(11)"
     },
     "tymetrostation":{
+        "idx":"int32",
         "station":"string(20)",
         "lat":"double",
         "lon":"double",
@@ -459,6 +475,7 @@
         "f_cnt":"int32"
     },
     "school":{
+        "idx":"int32",
         "id":"char(6)",
         "name":"varstring(100)",
         "type":"string(10)",

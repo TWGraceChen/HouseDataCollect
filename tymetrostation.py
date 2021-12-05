@@ -16,8 +16,10 @@ def Transform(file):
     raw = func.readcsv(file)
     raw = raw[1:]
     data = []
+    idx = 1
     for r in raw:
-      data.append(r+[func.towkt(r[2],r[1])])
+      data.append([idx]+r+[func.towkt(r[2],r[1])])
+      idx = idx +1
     return data
 
 

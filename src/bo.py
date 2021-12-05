@@ -8,7 +8,8 @@ def conn(host,port,db):
         "user": "root",
         "password": "",
         "db": db,
-        "charset": "utf8"
+        "charset": "utf8",
+        "connect_timeout":31536000
     }
 
     try:

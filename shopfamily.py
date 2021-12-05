@@ -45,8 +45,10 @@ def Extract(path):
 def Transform(file):
     raw = func.readcsv(file)
     data = []
+    idx = 1
     for r in raw:
-      data.append(r+[func.towkt(r[6],r[7])])
+      data.append([idx]+r+[func.towkt(r[6],r[7])])
+      idx = idx +1
     return data
 
 
