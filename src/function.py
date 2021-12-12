@@ -40,40 +40,32 @@ def transgeo(address,path):
     headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
     payload = "address=" + encodeaddr + "&matchRange=0&fuzzyNum=0&roadEQstreet=false&subnumEQnum=false&isLockTown=false&isLockVillage=false&ex_coor=EPSG%3A4326&U02DataYear=2015&output_xml=1"
     response = requests.request("POST", url, headers=headers, data=payload)
-    soup = BeautifulSoup(response.text,features="lxml")
-    try:
-        result = soup.find("tr",{"class":"bwhite"}).find_all("td")
-        r = {
-            'city':result[0].text,
-            'town':result[1].text,
-            'address':result[2].text,
-            'area':result[3].text,
-            'code2':result[4].text,
-            'code1':result[5].text,
-            'codebase':result[6].text,
-            'code':result[7].text,
-            'desc':result[8].text,
-            'x':result[9].text,
-            'y':result[10].text
-        }
-        with open(filename, 'w') as f:
-            json.dump(r, f)
-    except Exception as e:
-        print(e)
-        r = {
-            'city':"",
-            'town':"",
-            'address':"",
-            'area':"",
-            'code2':"",
-            'code1':"",
-            'codebase':"",
-            'code':"",
-            'desc':"",
-            'x':"",
-            'y':""
-        }
-    
+    if response.status_code == 200:
+        try:
+            soup = BeautifulSoup(response.text,features="lxml")
+            result = soup.find("tr",{"class":"bwhite"}).find_all("td")
+            r = {
+                'city':result[0].text,
+                'town':result[1].text,
+                'address':result[2].text,
+                'area':result[3].text,
+                'code2':result[4].text,
+                'code1':result[5].text,
+                'codebase':result[6].text,
+                'code':result[7].text,
+                'desc':result[8].text,
+                'x':result[9].text,
+                'y':result[10].text
+            }
+            with open(filename, 'w') as f:
+                json.dump(r, f)
+        except Exception as e:
+            print(e)
+            r = {'city':"",'town':"",'address':"",'area':"",'code2':"",'code1':"",'codebase':"",'code':"",'desc':"",'x':"",'y':""}
+        return r
+    else:
+        print(response.status_code)
+        r = {'city':"",'town':"",'address':"",'area':"",'code2':"",'code1':"",'codebase':"",'code':"",'desc':"",'x':"",'y':""}
     return r
 
 
@@ -131,6 +123,6 @@ def towkt(lon,lat):
         return ""
     return "point({} {})".format(lon,lat)
 if __name__ == '__main__':
-    #print(transgeo("臺北市大同區甘州街51號","../geo"))
+    print(transgeo("臺北市松山區南京東路五段４０號１１樓之４","../geo"))
     #print(transgeoxy(121.514055,25.048808))
-    print(TWDToGPS(301442.6468,2770733.688))
+    #print(TWDToGPS(301442.6468,2770733.688))

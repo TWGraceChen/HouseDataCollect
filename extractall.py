@@ -1,7 +1,7 @@
 import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,people,pharmarcy,park
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation
-import airport,am_radioaddress,cleaninginstitution,factory,fm_radioaddress,gas_station,incinerator,LPG,nuclear_powerplant
-import powerplant,recyclablesdepot
+import airport,radio,cleaninginstitution,factory,gas_station,incinerator,nuclear_powerplant
+import recyclablesdepot,cleaningteam
 
 path = "./data"
 
@@ -29,13 +29,10 @@ shopokmart.Extract(path)
 simplemart.Extract(path)
 tymetrostation.Extract(path)
 airport.Extract(path)
-am_radioaddress.Extract(path)
+radio.Extract(path)
 cleaninginstitution.Extract(path)
 factory.Extract(path)
-fm_radioaddress.Extract(path)
 gas_station.Extract(path)
 incinerator.Extract(path)
-LPG.Extract(path)
 nuclear_powerplant.Extract(path)
-powerplant.Extract(path)
 recyclablesdepot.Extract(path)

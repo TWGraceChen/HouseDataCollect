@@ -2,6 +2,7 @@ from src import bo
 import json
 import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,people,pharmarcy,park
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation,shp
+import airport,cleaninginstitution,cleaningteam,gas_station,incinerator,nuclear_powerplant,recyclablesdepot
 
 
 
@@ -130,6 +131,44 @@ bo.load(db,table,schema[table],data)
 data = school.Transform(path+'/school')
 table = "school"
 bo.load(db,table,schema[table],data)   
+
+
+# airport
+data = tymetrostation.Transform(path+'/airport.csv')
+table = "airport"
+bo.load(db,table,schema[table],data) 
+
+# cleaninginstitution
+data = cleaninginstitution.Transform(path+'/cleaninginstitution.csv')
+table = "cleaninginstitution"
+bo.load(db,table,schema[table],data) 
+
+# cleaningteam
+data = cleaningteam.Transform(path+'/cleaninginstitution.csv')
+table = "cleaningteam"
+bo.load(db,table,schema[table],data) 
+
+
+# gas_station
+data = gas_station.Transform(path+'/gas_station.csv')
+table = "gas_station"
+bo.load(db,table,schema[table],data) 
+
+# incinerator
+data = incinerator.Transform(path+'/incinerator.csv')
+table = "incinerator"
+bo.load(db,table,schema[table],data) 
+
+# nuclear_powerplant
+data = nuclear_powerplant.Transform(path+'/nuclear_powerplant.csv')
+table = "nuclear_powerplant"
+bo.load(db,table,schema[table],data) 
+
+
+# recyclablesdepot
+data = recyclablesdepot.Transform(path+'/recyclablesdepot.csv')
+table = "recyclablesdepot"
+bo.load(db,table,schema[table],data) 
 
 # park
 

@@ -5,6 +5,8 @@
 
 import requests
 from src import function as func
+from src import bo
+import json
 import sys
 
 def Extract(path):
@@ -15,8 +17,28 @@ def Extract(path):
     output = path+'/incinerator.csv'
     func.writetofile(output,url_content)
 
-
+def Transform(file):
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = []
+    idx = 1
+    for r in raw:
+        xy = func.transgeo(r[2],"./geo")
+        data.append([idx]+r+[xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])])
+        idx = idx + 1
+    return data
 
 
 if __name__ == '__main__':
-    Extract('./data')
+    # Extract
+    #Extract('./data')
+    
+    # Transform
+    data = Transform('./data/incinerator.csv')
+    
+    # Load
+    db = bo.conn("127.0.0.1",13303,"house")
+    with open("schema.json") as f:
+        schema = json.load(f)
+    table = "incinerator"
+    bo.load(db,table,schema[table],data)

@@ -2,6 +2,7 @@ import requests, zipfile, io
 from src import function as func
 from src import bo
 import json
+import csv
 
 def ymtodt(ym):
     if len(ym) < 7:
@@ -66,23 +67,96 @@ def Transform(path,cate):
             data_c = data
     return data_a,data_b,data_c
 
+def Preparecsv(path,cate,period):
+    city = {"c":"基隆市","a":"臺北市","f":"新北市","h":"桃園市","o":"新竹市","j":"新竹縣","k":"苗栗縣","b":"臺中市","m":"南投縣","n":"彰化縣","p":"雲林縣","i":"嘉義市","q":"嘉義縣","d":"臺南市","e":"高雄市","t":"屏東縣","g":"宜蘭縣","u":"花蓮縣","v":"臺東縣","x":"澎湖縣","w":"金門縣","z":"連江縣"}
+    for c in cate:
+        print("===="+c+"====")
+
+        for k in city:
+            print(c+":"+city[k])
+            data = []
+            file = "{}/{}_lvr_land_{}.csv".format(path,k,c)
+            raw = func.readcsv(file)
+            raw = raw[2:]
+            id = 0
+            for r in raw:
+                cityname = city[k]
+                townname = r[0]
+                address = r[2]
+                if cityname in address and townname in address:
+                    address = address.replace(cityname,'').replace(townname,'')
+                    
+                id = id+1
+                if r[1] == '土地':
+                    continue
+                else:
+                    data.append([id,cityname,townname,'','',address])
+            
+            f = 1
+            size = 200
+            while len(data) > 0:
+                wdata = [['ID(非必填)','縣市(必填)','鄉鎮(必填)','村里(可不填)','鄰(可不填)','地址(必填)']] + data[:size]
+                #func.writetofile('./geobatch/house_'+period+'_'+c+'_'+k+'_'+str(f)+'.csv',wdata)
+                with open('./geobatch/house_'+period+'_'+c+'_'+k+'_'+str(f)+'.csv', 'w', newline='', encoding='Big5',errors='ignore') as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerows(wdata)
+                data = data[size:]
+                f = f+1
+
+def Preparecsvtgos(path,cate,period):
+    city = {"c":"基隆市","a":"臺北市","f":"新北市","h":"桃園市","o":"新竹市","j":"新竹縣","k":"苗栗縣","b":"臺中市","m":"南投縣","n":"彰化縣","p":"雲林縣","i":"嘉義市","q":"嘉義縣","d":"臺南市","e":"高雄市","t":"屏東縣","g":"宜蘭縣","u":"花蓮縣","v":"臺東縣","x":"澎湖縣","w":"金門縣","z":"連江縣"}
+    for c in cate:
+        print("===="+c+"====")
+
+        for k in city:
+            print(c+":"+city[k])
+            data = []
+            file = "{}/{}_lvr_land_{}.csv".format(path,k,c)
+            raw = func.readcsv(file)
+            raw = raw[2:]
+            id = 0
+            for r in raw:
+                address = filladdress(city[k],r[0],r[2])
+                id = id+1
+                if r[1] == '土地':
+                    continue
+                else:
+                    data.append([id,address,'','',''])
+            
+            f = 1
+            size = 10000
+            while len(data) > 0:
+                wdata = [["id","Address","Response_Address","Response_X","Response_Y"]] + data[:size]
+                #func.writetofile('./geobatchtgos/house_'+period+'_'+c+'_'+k+'_'+str(f)+'.csv',wdata)
+                with open('./geobatchtgos/house_'+period+'_'+c+'_'+k+'_'+str(f)+'.csv', 'w', newline='', encoding='Big5',errors='ignore') as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerows(wdata)
+                data = data[size:]
+                f = f+1               
 
 if __name__ == '__main__':
     # Extract
     #Extract('./data')
     
-    # Transform
-    period = "108S4"
-    data_a,data_b,data_c = Transform('./data/house/'+period,['a'])
+
+    # Prepare Upload Data
+    period = "109S1"
+    path = './data/house/'+period
+    category = ['a']
+    #Preparecsv(path,category,period)
+    Preparecsvtgos(path,category,period)
+    
+    ## Transform
+    #data_a,data_b,data_c = Transform(path,category)
 
 
-    # Load
-    db = bo.conn("127.0.0.1",13303,period)
-    with open("schema.json") as f:
-        schema = json.load(f)
-    table = "house_buy"
-    bo.load(db,table,schema[table],data_a) 
-    table = "house_pre_buy"
-    bo.load(db,table,schema[table],data_b)  
-    table = "house_rent"
-    bo.load(db,table,schema[table],data_c)    
+    ## Load
+    #db = bo.conn("127.0.0.1",13303,period)
+    #with open("schema.json") as f:
+    #    schema = json.load(f)
+    #table = "house_buy"
+    #bo.load(db,table,schema[table],data_a) 
+    #table = "house_pre_buy"
+    #bo.load(db,table,schema[table],data_b)  
+    #table = "house_rent"
+    #bo.load(db,table,schema[table],data_c)    
