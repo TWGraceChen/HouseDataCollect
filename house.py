@@ -93,7 +93,7 @@ def Preparecsv(path,cate,period):
                     data.append([id,cityname,townname,'','',address])
             
             f = 1
-            size = 200
+            size = 10000
             while len(data) > 0:
                 wdata = [['ID(非必填)','縣市(必填)','鄉鎮(必填)','村里(可不填)','鄰(可不填)','地址(必填)']] + data[:size]
                 #func.writetofile('./geobatch/house_'+period+'_'+c+'_'+k+'_'+str(f)+'.csv',wdata)
@@ -105,6 +105,7 @@ def Preparecsv(path,cate,period):
 
 def Preparecsvtgos(path,cate,period):
     city = {"c":"基隆市","a":"臺北市","f":"新北市","h":"桃園市","o":"新竹市","j":"新竹縣","k":"苗栗縣","b":"臺中市","m":"南投縣","n":"彰化縣","p":"雲林縣","i":"嘉義市","q":"嘉義縣","d":"臺南市","e":"高雄市","t":"屏東縣","g":"宜蘭縣","u":"花蓮縣","v":"臺東縣","x":"澎湖縣","w":"金門縣","z":"連江縣"}
+    city = {"a":"臺北市","f":"新北市"}
     for c in cate:
         print("===="+c+"====")
 
@@ -140,7 +141,7 @@ if __name__ == '__main__':
     
 
     # Prepare Upload Data
-    period = "109S1"
+    period = "108S4"
     path = './data/house/'+period
     category = ['a']
     #Preparecsv(path,category,period)

@@ -1,10 +1,10 @@
 # HouseDataCollect
 
-## 實價登錄
+# 實價登錄
 - 資料來源：https://plvr.land.moi.gov.tw/DownloadOpenData
 - `python3 house.py`
 
-
+# 生活機能
 ## 臺北捷運車站出入口座標
 - 資料來源：https://data.gov.tw/dataset/128428
 - `python3 mrtstation.py`
@@ -85,7 +85,48 @@
 - 資料來源：https://depart.moe.edu.tw/ed4500/News_Content.aspx?n=63F5AB3D02A8BBAC&sms=1FF9979D10DBF9F3&s=A8441F4B7D2B1D62
 - `python3 school.py`
 
+# 嫌惡設施
+## 民用航空站服務台
+- 資料來源：https://data.gov.tw/dataset/8093
+- `python3 airport.py`
 
+## 焚化廠基本資料
+- 資料來源：https://data.epa.gov.tw/dataset/fac_s_01
+- `python3 incinerator.py`
+
+## 全國各縣市清潔隊資料
+- 資料來源：https://data.epa.gov.tw/dataset/wr_s_04
+- `python3 cleaningteam.py`
+
+## 公民營廢棄物清除機構資料
+- 資料來源：https://data.epa.gov.tw/dataset/wr_s_05
+- `python3 cleaninginstitution.py`
+
+
+## 資源回收業(站、點)資料
+- 資料來源：https://data.epa.gov.tw/dataset/wr_p_45
+- `python3 recyclablesdepot.py`
+
+## 電臺發射機
+- 資料來源：https://www.ncc.gov.tw/chinese/opendata_item.aspx?menu_function_sn=154
+- 資料來源：https://www.ncc.gov.tw/chinese/opendata_item.aspx?menu_function_sn=155
+- `python3 radio.py`
+
+
+## 台灣電力公司_核能發電廠位置及機組設備
+- 資料來源：https://data.gov.tw/dataset/10858
+- `python3 nuclear_powerplant.py`
+
+## 加油站服務資訊
+- 資料來源：https://data.gov.tw/dataset/6065
+- `python3 gas_station.py`
+
+## 營運中工廠家數之地理分布圖
+- 資料來源：https://data.gov.tw/dataset/37314
+- `python3 factory.py`
+
+
+# 總體經濟
 
 ## 房貸、存款利率
 - 資料來源：https://data.gov.tw/dataset/10359
@@ -101,7 +142,7 @@
 - `python3 eco.py`
 
 
-
+# 空間資料
 ## 統計區圖
 - https://segis.moi.gov.tw/STAT/Web/Portal/GroupProfile/STAT_GroupProfileSTATClass.aspx
 - `python3 shp.py`

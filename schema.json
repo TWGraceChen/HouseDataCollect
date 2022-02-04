@@ -731,6 +731,7 @@
         "companyaddress":"varstring(200)",
         "city":"string(10)",
         "role":"string(20)",
+        "level":"char(3)",
         "validdate":"date32",
         "phone":"varstring(50)",
         "address":"varstring(200)",
