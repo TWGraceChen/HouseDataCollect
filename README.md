@@ -151,6 +151,10 @@
 - 資料來源：https://data.epa.gov.tw/dataset/gisepa_p_11
 - `python3 incineratorchimney.py`
 
+## 工業汙水處理
+- 資料來源：https://data.gov.tw/dataset/8818 
+- `python3 wastewater.py`
+
 # 總體經濟
 
 ## 房貸、存款利率

@@ -1007,5 +1007,20 @@
         "city":"string(10)",
         "point":"point",
         "villcode":"char(11)"
+    },
+    "wastewater":{
+        "idx":"int32",
+        "id":"int32",
+        "no":"char(8)",
+        "areaname":"varstring(50)",
+        "areano":"char(2)",
+        "location":"varstring(50)",
+        "address":"varstring(200)",
+        "LOCATION_T":"varstring(50)",
+        "lon":"double",
+        "lat":"double",
+        "M_time":"date32",
+        "point":"point",
+        "villcode":"char(11)"
     }
 }
