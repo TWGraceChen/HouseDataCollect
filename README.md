@@ -125,6 +125,15 @@
 - 資料來源：https://data.gov.tw/dataset/37314
 - `python3 factory.py`
 
+## 殯葬設施
+- 資料來源：http://data.gov.tw/node/7052
+- `python3 funeralfacilities.py`
+
+
+## 全國宗教資訊系統資料-寺廟
+- 資料來源：https://data.gov.tw/dataset/8203
+- `python3 temple.py`
+
 
 # 總體經濟
 

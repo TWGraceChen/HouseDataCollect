@@ -1,7 +1,7 @@
 import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,people,pharmarcy,park
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation
 import airport,radio,cleaninginstitution,factory,gas_station,incinerator,nuclear_powerplant
-import recyclablesdepot,cleaningteam,shp
+import recyclablesdepot,cleaningteam,shp,funeralfacilities,temple
 
 path = "./data"
 
@@ -38,7 +38,8 @@ factory.Extract(path)
 park.Extract(path)
 shp.Extract(path)
 house.Extract(path)
-
+funeralfacilities.Extract(path)
+temple.Extract(path)
 
 
 

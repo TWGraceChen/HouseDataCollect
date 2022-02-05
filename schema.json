@@ -724,6 +724,19 @@
         "codebase":"char(13)",
         "villcode":"char(11)"
     },
+    "factory":{
+        "idx":"int32",
+        "COUN_ID":"char(5)",
+        "COUN_NA":"string(20)",
+        "TOWN_ID":"char(8)",
+        "TOWN_NA":"string(20)",
+        "CODE3":"char(11)",
+        "y101":"int32",
+        "y102":"int32",
+        "y103":"int32",
+        "y104":"int32",
+        "villcode":"char(11)"
+    },
     "cleaninginstitution":{
         "idx":"int32",
         "id":"char(8)",
@@ -890,5 +903,48 @@
         "lat":"double",
         "point":"point",
         "villcode":"char(11)"
+    },
+    "funeralfacilities":{
+        "idx":"int32",
+        "facilityId":"int32",
+        "facilityName":"varstring(50)",
+        "facilityClass":"string(10)",
+        "facilityType":"varstring(50)",
+        "belongCityId":"varstring(50)",
+        "phone":"varstring(100)",
+        "fax":"varstring(100)",
+        "url":"varstring(100)",
+        "email":"varstring(200)",
+        "address":"varstring(200)",
+        "city":"string(10)",
+        "town":"string(10)",
+        "xyaddress":"varstring(200)",
+        "xyarea":"varstring(20)",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
+        "code":"char(16)",
+        "desc":"varstring(100)",
+        "lon":"double",
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"        
+    },
+    "temple":{
+        "idx":"int32",
+        "id":"char(7)",
+        "name":"varstring(100)",
+        "god":"varstring(100)",
+        "city":"string(10)",
+        "address":"varstring(200)",
+        "cate1":"varstring(20)",
+        "cate2":"varstring(20)",
+        "type":"varstring(20)",
+        "tel":"varstring(100)",
+        "owner":"varstring(100)",
+        "lon":"double",
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"     
     }
 }

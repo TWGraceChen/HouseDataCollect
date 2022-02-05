@@ -5,7 +5,9 @@
 
 import requests
 import sys
+import json
 from src import function as func
+from src import bo
 
 def Extract(path):
     print("====factory====")
@@ -16,7 +18,15 @@ def Extract(path):
     func.writetofile(output,url_content)
 
 
-
+def Transform(file):
+    raw = func.readcsv(file)
+    raw = raw[1:]
+    data = []
+    idx = 1
+    for r in raw:
+        data.append([idx]+r)
+        idx = idx +1
+    return data
 
 if __name__ == '__main__':
     # Extract
