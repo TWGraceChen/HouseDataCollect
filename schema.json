@@ -946,5 +946,29 @@
         "lat":"double",
         "point":"point",
         "villcode":"char(11)"     
+    },
+    "ancestralhall":{
+        "idx":"int32",
+        "name":"varstring(100)",
+        "city":"string(10)",
+        "address":"varstring(200)",
+        "tel":"varstring(100)",
+        "owner":"varstring(100)",
+        "lon":"double",
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"     
+    },
+    "foundation":{
+        "idx":"int32",
+        "name":"varstring(100)",
+        "city":"string(10)",
+        "address":"varstring(200)",
+        "tel":"varstring(100)",
+        "owner":"varstring(100)",
+        "lon":"double",
+        "lat":"double",
+        "point":"point",
+        "villcode":"char(11)"     
     }
 }

@@ -134,6 +134,15 @@
 - 資料來源：https://data.gov.tw/dataset/8203
 - `python3 temple.py`
 
+## 全國宗教資訊系統資料-宗祠
+- 資料來源：http://data.gov.tw/node/8206
+- `python3 ancestralhall.py`
+
+
+## 全國宗教資訊系統資料-宗祠基金會
+- 資料來源：http://data.gov.tw/node/8208
+- `python3 foundation.py`
+
 
 # 總體經濟
 
