@@ -3,7 +3,7 @@ import json
 import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,people,pharmarcy,park
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation,shp
 import airport,cleaninginstitution,cleaningteam,gas_station,incinerator,nuclear_powerplant,recyclablesdepot
-import radio,factory,funeralfacilities,temple,ancestralhall,foundation
+import radio,factory,funeralfacilities,temple,ancestralhall,foundation,incineratorarea,incineratorchimney
 
 
 
@@ -232,4 +232,14 @@ bo.load(db,table,schema[table],data)
 # foundation
 data = foundation.Transform(path+'/foundation.csv')
 table = "foundation"
+bo.load(db,table,schema[table],data) 
+
+# incineratorarea
+data = incineratorarea.Transform(path+'/incineratorarea.csv')
+table = "incineratorarea"
+bo.load(db,table,schema[table],data) 
+
+# incineratorchimney
+data = incineratorchimney.Transform(path+'/incineratorchimney.csv')
+table = "incineratorchimney"
 bo.load(db,table,schema[table],data) 

@@ -143,6 +143,13 @@
 - 資料來源：http://data.gov.tw/node/8208
 - `python3 foundation.py`
 
+## 焚化爐廠區範圍圖
+- 資料來源：https://data.epa.gov.tw/dataset/gisepa_p_12
+- `python3 incineratorarea.py`
+
+## 焚化爐煙囪位置圖
+- 資料來源：https://data.epa.gov.tw/dataset/gisepa_p_11
+- `python3 incineratorchimney.py`
 
 # 總體經濟
 
