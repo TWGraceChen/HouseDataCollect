@@ -155,6 +155,20 @@
 - 資料來源：https://data.gov.tw/dataset/8818 
 - `python3 wastewater.py`
 
+## 應回收廢棄物處理業者資料
+- 資料來源：https://data.epa.gov.tw/dataset/wr_s_03
+- `python3 waste.py`
+
+
+## 經濟部中部辦公室_夜市資料
+- 資料來源：https://data.gov.tw/dataset/95760
+- `python3 nightmarket.py`
+
+
+## 水火力發電廠位置及機組設備
+- 資料來源：https://data.gov.tw/dataset/8934
+- `python3 powerplant.py`
+
 # 總體經濟
 
 ## 房貸、存款利率

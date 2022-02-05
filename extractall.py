@@ -2,7 +2,7 @@ import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,peo
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation
 import airport,radio,cleaninginstitution,factory,gas_station,incinerator,nuclear_powerplant
 import recyclablesdepot,cleaningteam,shp,funeralfacilities,temple,ancestralhall,foundation,incineratorarea,incineratorchimney
-import wastewater
+import wastewater,waste,nightmarket,powerplant
 
 path = "./data"
 
@@ -46,8 +46,8 @@ foundation.Extract(path)
 incineratorarea.Extract(path)
 incineratorchimney.Extract(path)
 wastewater.Extract(path)
-
-
-
+waste.Extract(path)
+nightmarket.Extract(path)
+powerplant.Extract(path)
 
 

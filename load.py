@@ -4,7 +4,7 @@ import busstation,carrefour,costco,eco,firestation,hospital,house,mrtstation,peo
 import policestation,pxmart,rate,rtmart,school,shopseven,shopfamily,shophilife,shopokmart,simplemart,tymetrostation,shp
 import airport,cleaninginstitution,cleaningteam,gas_station,incinerator,nuclear_powerplant,recyclablesdepot
 import radio,factory,funeralfacilities,temple,ancestralhall,foundation,incineratorarea,incineratorchimney
-import wastewater
+import wastewater,waste,nightmarket,powerplant
 
 
 path = "./data"
@@ -248,4 +248,22 @@ bo.load(db,table,schema[table],data)
 # wastewater
 data = wastewater.Transform(path+'/wastewater.csv')
 table = "wastewater"
+bo.load(db,table,schema[table],data) 
+
+
+# waste
+data = waste.Transform(path+'/waste.csv')
+table = "waste"
+bo.load(db,table,schema[table],data) 
+
+
+# nightmarket
+data = nightmarket.Transform(path+'/nightmarket.csv')
+table = "nightmarket"
+bo.load(db,table,schema[table],data) 
+
+
+# powerplant
+data = powerplant.Transform(path+'/powerplant.csv')
+table = "powerplant"
 bo.load(db,table,schema[table],data) 
