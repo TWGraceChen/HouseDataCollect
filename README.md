@@ -184,6 +184,20 @@
 - 資料來源：https://data.gov.tw/dataset/13228
 - `python3 eco.py`
 
+## 經濟部能源局_液化石油氣分裝業聯絡資訊
+- 資料來源：https://data.gov.tw/dataset/25533
+- `python3 lpg.py`
+
+
+## 商業登記(依營業項目別)－殯葬禮儀服務業
+- 資料來源：https://data.gov.tw/dataset/81112
+- `python3 funeralbussiness.py`
+- :warning: 未完成
+
+## 公司登記(依營業項目別)－殯葬禮儀服務業
+- 資料來源：https://data.gov.tw/dataset/32679
+- `python3 funeralcompany.py`
+- :warning: 未完成
 
 # 空間資料
 ## 統計區圖
