@@ -78,7 +78,11 @@ def load(db,table,schema,data,delete=True,batch_size=30000):
         
     print(table)
 
-
+def query(conn,command):
+    with conn.cursor() as cursor:
+        cursor.execute(command)
+        result = cursor.fetchall()
+        return result 
 
 
 if __name__ == '__main__':
