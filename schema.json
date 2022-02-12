@@ -497,6 +497,7 @@
         "villcode":"char(11)"
     },
     "house_buy":{
+        "idx":"int32",
         "city":"string(10)",
         "town":"string(10)",
         "transaction_sign":"string(30)",
@@ -536,9 +537,13 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"
     },
     "house_pre_buy":{
+        "idx":"int32",
         "city":"string(10)",
         "town":"string(10)",
         "transaction_sign":"string(30)",
@@ -574,9 +579,13 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"
     },
     "house_rent":{
+        "idx":"int32",
         "city":"string(10)",
         "town":"string(10)",
         "transaction_sign":"string(30)",
@@ -612,6 +621,9 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"
     },
     "area_code0":{
@@ -900,6 +912,9 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"     
     },
     "ancestralhall":{
@@ -912,6 +927,9 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"     
     },
     "foundation":{
@@ -924,6 +942,9 @@
         "lon":"double",
         "lat":"double",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"     
     },
     "incineratorarea":{
@@ -961,6 +982,9 @@
         "TEL":"varstring(100)",
         "city":"string(10)",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"
     },
     "wastewater":{
@@ -976,6 +1000,9 @@
         "lat":"double",
         "M_time":"date32",
         "point":"point",
+        "code2":"char(8)",
+        "code1":"char(12)",
+        "codebase":"char(13)",
         "villcode":"char(11)"
     },
     "waste":{

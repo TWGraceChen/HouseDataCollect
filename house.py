@@ -76,6 +76,7 @@ def Transform(path,geopath,cate,period):
     for c in cate:
         print("===="+c+"====")
         data = []
+        idx = 1
         for k in city:
             print("city:"+city[k])
             f = 1
@@ -113,7 +114,8 @@ def Transform(path,geopath,cate,period):
                     #    row = row + [""] * 4
                 else:
                     row = row + [""] * 4
-                data.append(row)
+                data.append([idx]+row)
+                idx = idx +1
         if c == 'a':
             data_a = data
         elif c == 'b':
