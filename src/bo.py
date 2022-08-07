@@ -67,7 +67,7 @@ def load(db,table,schema,data,delete=True,batch_size=30000):
     total = 0
     for rows in data:
         total = total +1
-        values.append("(" + ",".join(["\""+str(item).replace("\"","\\\"").replace("\\","\\\\")+"\"" for item in rows]) + ")")
+        values.append("(" + ",".join(["\""+str(item).replace(r'"',r'\"')+"\"" for item in rows]) + ")")
         if len(values) == batch_size or total == len(data):
             sql = "insert into `" + table + "` values "+ ",".join(values)
             try:

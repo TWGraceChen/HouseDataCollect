@@ -7,6 +7,7 @@ import json
 from src import function as func
 import sys
 from src import bo
+import re
 
 def Extract(path):
     print("====funeralfacilities====")
@@ -42,7 +43,8 @@ def Transform(file):
         if len(r) < 10:
             continue
         if len(r[9]) > 0:
-            xy = func.transgeo(r[9],"./geo")
+            address = re.sub("\(.+\)", "", r[9])
+            xy = func.transgeo(address,"./geo")
             row = row + [xy['city'],xy['town'],xy['address'],xy['area'],xy['code2'],xy['code1'],xy['codebase'],xy['code'],xy['desc'],xy['x'],xy['y'],func.towkt(xy['x'],xy['y'])]
         else:
             row = row + [""] * 12
